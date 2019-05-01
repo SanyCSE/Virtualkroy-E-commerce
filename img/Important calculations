@@ -1,0 +1,61 @@
+Calculate Total currency:
+
+                                         <?php
+                                         include 'config.php';
+                                         if(isset($_SESSION['cart'])) {
+                                         $total = 0;
+                                         foreach($_SESSION['cart'] as $product_id => $quantity) {
+                                         $result = $mysqli->query("SELECT product_code, product_name, product_desc, qty, price FROM products WHERE id = ".$product_id);
+                                         if($result){
+                                         while($obj = $result->fetch_object()) {
+                                         $cost = $obj->price * $quantity; //work out the line cost
+                                         $total = $total + $cost; //add to the total cost
+                                            }
+                                           }
+                                          }
+                                         echo '<p>'.$currency.$total.'</p>';
+                                         }
+                                        ?>
+
+
+
+
+Amount:
+<?php
+        $user = $_SESSION["username"];
+        $result = $mysqli->query("SELECT * from orders where email='".$user."'");
+        if($result) {
+        while($obj = $result->fetch_object()) {
+        echo '<p>'.$currency.$obj->total.'</p>';
+
+            }
+          }
+        ?>
+
+
+
+                <?php
+        $user = $_SESSION["username"];
+        $result = $mysqli->query("SELECT * from orders where email='".$user."'");
+        if($result) {
+        while($obj = $result->fetch_object()) {
+        echo '<p>'.$currency.$obj->total.'</p>';
+
+            }
+          }
+        ?>
+
+
+        </div>
+        </section>
+
+                <?php
+        $user = $_SESSION["username"];
+        $result = $mysqli->query("SELECT * from orders where email='".$user."'");
+        if($result) {
+        while($obj = $result->fetch_object()) {
+        echo '<p>'.$currency.$obj->total.'</p>';
+
+            }
+          }
+        ?>
